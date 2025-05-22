@@ -1,5 +1,9 @@
 # Token Saliency HeatMap Visualizer v 1.0.0
 
+<div align="center">
+  <img src="images/token_saliency_heatmap1-white-font.png" alt="Visualization of how embeddings are saved" />
+</div>
+
 Saliency maps help answer "Why did the model make this prediction?" by pinpointing the specific parts of the input that were most influential.
 
 They are generally utilized by analyzing how a small change in each input feature affects the model's output.
