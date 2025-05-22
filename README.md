@@ -41,7 +41,7 @@ except ImportError:
     print("❌ Error: bitsandbytes could not be imported. Please ensure it's installed correctly and you've restarted the kernel.")
     raise
 
-# Step 3: Load the Qwen3-4B model without 4-bit quantization
+# Step 3: Load the Qwen3-4B model
 print("Loading Qwen3-4B model...")
 model_name = "unsloth/Qwen3-4B-unsloth-bnb-4bit"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
