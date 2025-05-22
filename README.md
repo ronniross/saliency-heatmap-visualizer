@@ -1,4 +1,4 @@
-# Saliency HeatMap Visualizer v 1.0.0
+# Token Saliency HeatMap Visualizer v 1.0.0
 
 Saliency maps help answer "Why did the model make this prediction?" by pinpointing the specific parts of the input that were most influential.
 
