@@ -22,8 +22,8 @@ Finally, it uses Matplotlib and Seaborn to create and save a heatmap where color
 
 ```python
 # Step 1: Install libraries (if not already installed in your environment)
-pip install transformers matplotlib seaborn torch accelerate
-pip install -U bitsandbytes
+!pip install transformers matplotlib seaborn torch accelerate
+!pip install -U bitsandbytes
 
 # Step 2: Import libraries
 import torch
@@ -150,7 +150,7 @@ except Exception as e:
     query_saliency = saliency  # Fallback to full saliency
     query_cleaned_tokens = cleaned_tokens
 
-# Step 7: Function to visualize saliency (unchanged)
+# Step 7: Function to visualize saliency (modified to use white font color)
 def visualize_saliency(tokens_list, saliency_data, output_filename, plot_title_suffix,
                        token_width_multiplier, fig_height_ratio, min_fig_height, max_fig_width):
     num_tokens = len(tokens_list)
@@ -159,7 +159,7 @@ def visualize_saliency(tokens_list, saliency_data, output_filename, plot_title_s
 
     fig, ax = plt.subplots(figsize=(fig_width, fig_height))
     title = f"Input Token Saliency Map {plot_title_suffix}\n(Model: {model_name})".strip()
-    fig.suptitle(title, fontsize=14, y=0.99)
+    fig.suptitle(title, fontsize=14, y=0.99, color='white')
 
     divider = make_axes_locatable(ax)
     cax = divider.append_axes("top", size="7%", pad=0.3)
@@ -176,10 +176,11 @@ def visualize_saliency(tokens_list, saliency_data, output_filename, plot_title_s
     cb = fig.colorbar(mappable_artist, cax=cax, orientation="horizontal")
     cax.xaxis.set_ticks_position("top")
     cax.xaxis.set_label_position("top")
-    cb.set_label("Saliency Score (Gradient Norm for Next Token)", labelpad=5, fontsize=10)
-    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha="right", fontsize=10)
+    cb.set_label("Saliency Score (Gradient Norm for Next Token)", labelpad=5, fontsize=10, color='white')
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha="right", fontsize=10, color='white')
     ax.set_yticks([0.5])
-    ax.set_yticklabels(["Saliency"], rotation=0, va="center", fontsize=10)
+    ax.set_yticklabels(["Saliency"], rotation=0, va="center", fontsize=10, color='white')
+    cax.tick_params(axis='x', colors='white')
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.90])
     fig.patch.set_facecolor("none")
@@ -218,10 +219,16 @@ for f_name in files_to_check:
 
 print("\nScript finished.")
 ```
+white font
+<div align="center">
+  <img src="images/token_saliency_heatmap1-white-font.png" alt="Visualization of how embeddings are saved" />
+</div>
 
+black font
 <div align="center">
   <img src="images/token_saliency_heatmap1.png" alt="Visualization of how embeddings are saved" />
 </div>
+
 
 > ## Disclaimer
 > > 
