@@ -259,5 +259,3 @@ I’m working on several projects that explore advanced AI systems and their cap
 - **[Latent Memory](https://github.com/ronniross/latent-memory)**
   
 - **[Confidence Scorer](https://github.com/ronniross/llm-confidence-scorer)** 
-
-- **[Token Saliency Heatmap Visualizer](https://github.com/ronniross/saliency-heatmap-visualizer)**
